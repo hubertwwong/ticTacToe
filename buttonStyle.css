@@ -1,62 +1,19 @@
-input#toggle-1 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-2 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-3 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-4 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-5 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-6 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-7 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-8 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-input#toggle-9 {
-    position:absolute;
-    left:-9999999px;
-    opacity:0;
-}
-
-span {
-    background:#FF0000;
-    padding:5px;
-    border-radius:3px;
-    display:inline-block;
-    cursor:pointer;
-}
-span:hover {
-    background:#FFAAAA;
-}
-input:checked + label span {
-    background:#00FF00;
-}
-input:checked + label span:hover {
-    background:#AAFFAA;
+button.gameCell {
+	width: 100px;
+	background:#5CCD00;
+	background:-moz-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5CCD00),color-stop(100%,#4AA400));
+	background:-webkit-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
+	background:-o-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
+	background:-ms-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
+	background:linear-gradient(top,#5CCD00 0%,#4AA400 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5CCD00',endColorstr='#4AA400',GradientType=0);
+	padding:10px 15px;
+	color:#fff;
+	font-family:'Helvetica Neue',sans-serif;
+	font-size:16px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #459A00
 }

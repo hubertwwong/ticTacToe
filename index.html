@@ -12,34 +12,25 @@
         
         <!-- start game -->
         <div id="row-0">
-        	<button type="reset" onclick="engine.reset()">reset</button>
+        	<button type="reset" id="resetBtn" onclick="engine.reset()">reset</button>
         </div>
         <br/>
         
         <!-- the board -->
         <div id="row-1">
-	        <input type="checkbox" id="toggle-1" onclick="engine.cellClick(0)">
-			<label for="toggle-1"><span>1</span></label>
-			<input type="checkbox" id="toggle-2" onclick="engine.cellClick(1)">
-			<label for="toggle-2"><span>2</span></label>
-			<input type="checkbox" id="toggle-3"  onclick="engine.cellClick(2)">
-			<label for="toggle-3"><span>3</span></label>
+        	<button type="reset" id="cell0Btn" class="gameCell" onclick="engine.cellClick(0)">1</button>
+        	<button type="reset" id="cell1Btn" class="gameCell" onclick="engine.cellClick(1)">2</button>
+        	<button type="reset" id="cell2Btn" class="gameCell" onclick="engine.cellClick(2)">3</button>
 		</div>
 		<div id="row-2">
-	        <input type="checkbox" id="toggle-4" onclick="engine.cellClick(3)">
-			<label for="toggle-4"><span>4</span></label>
-			<input type="checkbox" id="toggle-5" onclick="engine.cellClick(4)">
-			<label for="toggle-5"><span>5</span></label>
-			<input type="checkbox" id="toggle-6" onclick="engine.cellClick(5)">
-			<label for="toggle-6"><span>6</span></label>
+	        <button type="reset" id="cell3Btn" class="gameCell" onclick="engine.cellClick(3)">4</button>
+        	<button type="reset" id="cell4Btn" class="gameCell" onclick="engine.cellClick(4)">5</button>
+        	<button type="reset" id="cell5Btn" class="gameCell" onclick="engine.cellClick(5)">6</button>
 		</div>
 		<div id="row-3">
-	        <input type="checkbox" id="toggle-7" onclick="engine.cellClick(6)">
-			<label for="toggle-7"><span>7</span></label>
-			<input type="checkbox" id="toggle-8" onclick="engine.cellClick(7)">
-			<label for="toggle-8"><span>8</span></label>
-			<input type="checkbox" id="toggle-9" onclick="engine.cellClick(8)">
-			<label for="toggle-9"><span>9</span></label>
+	        <button type="reset" id="cell6Btn" class="gameCell" onclick="engine.cellClick(6)">7</button>
+        	<button type="reset" id="cell7Btn" class="gameCell" onclick="engine.cellClick(7)">8</button>
+        	<button type="reset" id="cell8Btn" class="gameCell" onclick="engine.cellClick(8)">9</button>
 		</div>
 		
 		<!-- 

@@ -71,6 +71,9 @@ var engine = function() {
 				// update game state.
 				state[value]=cellValue;
 				
+				// update buttons...
+				document.getElementById("cell" + value + "Btn").innerHTML = currentPlayerText();
+				
 				// check to see if you are the winner
 				winning();
 				
