@@ -7,13 +7,22 @@ var engine = function() {
  	// figures out the current player.
  	// either X or O. and returns the int.
  	// 1 for X
- 	// 2 for Y
+ 	// 2 for O
  	var currentPlayerInt = function() {
  		var cellValue = 1;
  		if(turn % 2 == 1) {
  			cellValue = 2;
  		}
  		return cellValue;
+ 	}
+ 	
+ 	// returns if you are an X or O
+ 	var currentPlayerText = function() {
+ 		var cellText = "X";
+ 		if(turn % 2 == 1) {
+ 			cellText = "O";
+ 		}
+ 		return cellText;
  	}
  	
  	// game state
@@ -66,16 +75,14 @@ var engine = function() {
 				winning();
 				
 				if(win !== 0) {
-					con.println("winner");
-					con.println(cellValue);
+					con.println(currentPlayerText() + " is the winner");
 				}
 				
 				// increment turn;
 				turn++;
 			}
 			else {
-				con.println(state);
-				
+				// con.println(state);
 				// need to figure out how to do the CSS check.
 			}
 		},
