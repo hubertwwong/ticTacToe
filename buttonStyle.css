@@ -3,6 +3,46 @@ input#toggle-1 {
     left:-9999999px;
     opacity:0;
 }
+input#toggle-2 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
+input#toggle-3 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
+input#toggle-4 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
+input#toggle-5 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
+input#toggle-6 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
+input#toggle-7 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
+input#toggle-8 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
+input#toggle-9 {
+    position:absolute;
+    left:-9999999px;
+    opacity:0;
+}
 
 span {
     background:#FF0000;
