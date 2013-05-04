@@ -16,24 +16,35 @@ var engine = function() {
  	// change the game cell value.
  	// 5 values X, O, XW, OW, N
  	var gameCellFormat = function(loc, value) {
- 		var currentCell = document.getElementById("cell" + loc + "Btn");
+ 		var finalLoc = loc;
  		
- 		// check if its an X or O
- 		if (value === "X") {
- 			currentCell.className = "gameCellX";
+ 		// wrap a number into array if needed.
+ 		if (typeof loc === 'number') {
+ 			var finalLoc = [loc];
  		}
- 		else if (value === "O") {
- 			currentCell.className = "gameCellO";
+ 		
+ 		// update cells
+ 		for (var i=0 ; i<finalLoc.length ; i++) {
+ 			var currentCell = document.getElementById("cell" + finalLoc[i] + "Btn");
+ 		
+	 		// check if its an X or O
+	 		if (value === "X") {
+	 			currentCell.className = "gameCellX";
+	 		}
+	 		else if (value === "O") {
+	 			currentCell.className = "gameCellO";
+	 		}
+	 		if (value === "XWin") {
+	 			currentCell.className = "gameCellXWin";
+	 		}
+	 		else if (value === "OWin") {
+	 			currentCell.className = "gameCellOWin";
+	 		}
+	 		else if (value === "N") {
+	 			currentCell.className = "gameCell";
+	 		}	
  		}
- 		if (value === "XW") {
- 			currentCell.className = "gameCellXWin";
- 		}
- 		else if (value === "OW") {
- 			currentCell.className = "gameCellOWin";
- 		}
- 		else if (value === "N") {
- 			currentCell.className = "gameCell";
- 		}
+ 		
  	}
  	
  	// GAME FUNCTIONS
@@ -74,54 +85,27 @@ var engine = function() {
  		var c2 = -1;
  		var c3 = -1;
  		
- 		// horizontal
- 		if (winFlag === false) {
-	 		for(var i=0 ; i<3 ; i++) {
-	 			c1 = 0 + 3*i;
-	 			c2 = 1 + 3*i;
-	 			c3 = 2 + 3*i;
-	 			if(state[c1] === cellValue && state[c2] === cellValue && state[c3] === cellValue) {
-	 				win = cellValue;
-	 				gameCellFormat([c1, c2, c3], getCellText() + "Win");
-	 				break;
-	 			}
-	 		}
-	 	}
- 		// vertical
- 		if (winFlag === false) {
-	 		for(var i=0 ; i<3 ; i++) {
-	 			c1 = 0 + i;
-	 			c2 = 3 + i;
-	 			c3 = 6 + i;
-	 			if(state[c1] === cellValue && state[c2] === cellValue && state[c3] === cellValue) {
-	 				win = cellValue;
-	 				gameCellFormat([c1, c2, c3], getCellText() + "Win");
-	 				break;
-	 			}
-	 		}
- 		}
+ 		// load win states.
+ 		var winStates =[ [0,1,2],
+ 						 [3,4,5],
+ 						 [5,6,8],
+ 						 [0,3,5],
+ 						 [1,4,6],
+ 						 [2,5,8],
+ 						 [0,4,8],
+ 						 [2,4,5] ];
  		
- 		// diagionals
- 		if (winFlag === false) {
- 			c1 = 0;
- 			c2 = 3;
- 			c3 = 6;
-	 		if(state[c1] === cellValue && state[c2] === cellValue && state[c3] === cellValue) {
-				win = cellValue;
-				winFlag = true;
-			}
-		}
-		if (winFlag === false) {
-			c1 = 2;
- 			c2 = 4;
- 			c3 = 6;
-			if(state[c1] === cellValue && state[c2] === cellValue && state[c3] === cellValue) {
-				win = cellValue;
-				winFlag = true;
-			}
-		}
-		
-		// update with winflag
+ 		// horizontal
+ 		for(var i=0 ; i<winStates.length ; i++) {
+ 			c1 = winStates[i][0];
+ 			c2 = winStates[i][1];
+ 			c3 = winStates[i][2];
+ 			if(state[c1] === cellValue && state[c2] === cellValue && state[c3] === cellValue) {
+ 				win = cellValue;
+ 				gameCellFormat([c1, c2, c3], currentPlayerText() + "Win");
+ 				break;
+ 			}
+	 	}
  	}
  		
 	return {
