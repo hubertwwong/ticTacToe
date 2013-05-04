@@ -1,19 +1,94 @@
 button.gameCell {
-	width: 100px;
-	background:#5CCD00;
-	background:-moz-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5CCD00),color-stop(100%,#4AA400));
-	background:-webkit-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:-o-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:-ms-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5CCD00',endColorstr='#4AA400',GradientType=0);
-	padding:10px 15px;
-	color:#fff;
-	font-family:'Helvetica Neue',sans-serif;
-	font-size:16px;
-	border-radius:5px;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border:1px solid #459A00
+	display: inline-block;
+	width: 50px;
+  	padding: 8px;
+  	border: 3px solid #FCB326;
+  	border-radius: 6px;
+  	box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.2), 
+    inset 0 2px 1px rgba(0, 0, 0, 0.2);
+    
+  	/* Font styles */
+  	text-decoration: none;
+  	font-size: 14px;
+  	text-transform: uppercase;
+  	color: #222;
 }
+button.gameCell:hover  { border-color: #FDD68B; }
+button.gameCell:active { border-color: #FEE8BD; }
+
+button.gameCellX {
+	display: inline-block;
+	width: 50px;
+  	padding: 8px;
+  	border: 3px solid #00FF00;
+  	border-radius: 6px;
+  	box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.2), 
+    inset 0 2px 1px rgba(0, 0, 0, 0.2);
+    
+  	/* Font styles */
+  	text-decoration: none;
+  	font-size: 14px;
+  	text-transform: uppercase;
+  	color: #222;
+}
+button.gameCellX:hover  { border-color: #00FF22; }
+button.gameCellX:active { border-color: #00FF00; }
+
+button.gameCellXWin {
+	display: inline-block;
+	width: 50px;
+  	padding: 8px;
+  	border: 3px solid #00FF00;
+  	border-radius: 6px;
+  	box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.5), 
+    inset 0 2px 1px rgba(0, 0, 0, 0.5);
+    
+  	/* Font styles */
+  	text-decoration: none;
+  	font-size: 14px;
+  	text-transform: uppercase;
+  	color: #222;
+}
+button.gameCellXWin:hover  { border-color: #00FF22; }
+button.gameCellXWin:active { border-color: #00FF00; }
+
+button.gameCellO {
+	display: inline-block;
+	width: 50px;
+  	padding: 8px;
+  	border: 3px solid #FF0000;
+  	border-radius: 6px;
+  	box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.2), 
+    inset 0 2px 1px rgba(0, 0, 0, 0.2);
+    
+  	/* Font styles */
+  	text-decoration: none;
+  	font-size: 14px;
+  	text-transform: uppercase;
+  	color: #222;
+}
+button.gameCellO:hover  { border-color: #FF0022; }
+button.gameCellO:active { border-color: #FF0000; }
+
+button.gameCellOWin {
+	display: inline-block;
+	width: 50px;
+  	padding: 8px;
+  	border: 3px solid #FF0000;
+  	border-radius: 6px;
+  	box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.5), 
+    inset 0 2px 1px rgba(0, 0, 0, 0.5);
+    
+  	/* Font styles */
+  	text-decoration: none;
+  	font-size: 14px;
+  	text-transform: uppercase;
+  	color: #222;
+}
+button.gameCellOWin:hover  { border-color: #FF0022; }
+button.gameCellOWin:active { border-color: #FF0000; }
