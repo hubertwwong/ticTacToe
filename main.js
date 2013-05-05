@@ -8,8 +8,17 @@ var engine = function() {
  	
  	// change the text of the game cell.
  	var gameCellText = function(loc, value) {
- 		var currentCell = document.getElementById("cell" + loc + "Btn");
- 		currentCell.innerHTML = value;
+ 		var finalLoc = loc;
+ 		
+ 		// wrap a number into array if needed.
+ 		if (typeof loc === 'number') {
+ 			var finalLoc = [loc];
+ 		}
+ 		
+ 		for (var i=0 ; i<finalLoc.length ; i++) {
+	 		var currentCell = document.getElementById("cell" + finalLoc[i] + "Btn");
+	 		currentCell.innerHTML = value;
+	 	}
  	};
  	
  	// change the game cell value.
@@ -87,9 +96,9 @@ var engine = function() {
  		// load win states.
  		var winStates =[ [0,1,2],
  						 [3,4,5],
- 						 [5,6,8],
- 						 [0,3,5],
- 						 [1,4,6],
+ 						 [6,7,8],
+ 						 [0,3,6],
+ 						 [1,4,7],
  						 [2,5,8],
  						 [0,4,8],
  						 [2,4,6] ];
@@ -144,6 +153,10 @@ var engine = function() {
 			state = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			turn = 0;
 			win = 0;
+			
+			// reset all of the cells.
+			gameCellFormat([0,1,2,3,4,5,6,7,8], "N");
+			gameCellText([0,1,2,3,4,5,6,7,8], "-");
 		}
 	};
 	

@@ -35,7 +35,7 @@ button.gameCellX {
   	text-decoration: none;
   	font-size: 14px;
   	text-transform: uppercase;
-  	color: #222;
+  	color: #00FF00;
 }
 button.gameCellX:hover  { border-color: #00FF22; }
 button.gameCellX:active { border-color: #00FF00; }
@@ -81,7 +81,7 @@ button.gameCellO {
   	text-decoration: none;
   	font-size: 14px;
   	text-transform: uppercase;
-  	color: #222;
+  	color: #FF0000;
 }
 button.gameCellO:hover  { border-color: #FF0022; }
 button.gameCellO:active { border-color: #FF0000; }
