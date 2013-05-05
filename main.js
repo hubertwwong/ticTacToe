@@ -6,6 +6,11 @@ var engine = function() {
  	// CSS FUNCTIONS
  	// =======================================================================
  	
+ 	var gameStatusMsg = function(msg) {
+ 		var currentCell = document.getElementById("statusMsg");
+ 		currentCell.innerHTML = msg;
+ 	}
+ 	
  	// change the text of the game cell.
  	var gameCellText = function(loc, value) {
  		var finalLoc = loc;
@@ -85,6 +90,8 @@ var engine = function() {
  	// 0 = incomplete
  	// 1 = X wins
  	// 2 = O wins
+ 	//
+ 	// also check the tie state
  	var winning = function() {
  		// check who's turn it is.
  		var cellValue = currentPlayerInt();
@@ -103,7 +110,7 @@ var engine = function() {
  						 [0,4,8],
  						 [2,4,6] ];
  		
- 		// horizontal
+ 		// cycle thru all of the win states
  		for(var i=0 ; i<winStates.length ; i++) {
  			c1 = winStates[i][0];
  			c2 = winStates[i][1];
@@ -111,8 +118,19 @@ var engine = function() {
  			if(state[c1] === cellValue && state[c2] === cellValue && state[c3] === cellValue) {
  				win = cellValue;
  				gameCellFormat([c1, c2, c3], currentPlayerText() + "Win");
+ 				
+ 				// winner status message.
+ 				gameStatusMsg("Player " + currentPlayerText() + " wins !!!. Press reset to play another game.");
+ 				con.println(currentPlayerText() + " is the winner");
+ 				
  				break;
  			}
+	 	}
+	 	
+	 	// check for tie
+	 	con.println("winning " + turn);
+	 	if(turn === 8) {
+	 		gameStatusMsg("Tie game. Press reset to start another game.");
 	 	}
  	}
  		
@@ -133,15 +151,17 @@ var engine = function() {
 				gameCellFormat(value, currentPlayerText());
 				con.println(currentPlayerText() + " " + turn);
 				
-				// check to see if you are the winner
+				// increment turn;
+				// do this before chekcing for the win state.
+				turn++;
+				
+				/// check to see if you are the winner
 				winning();
 				
-				if(win !== 0) {
-					con.println(currentPlayerText() + " is the winner");
+				// prompt for next players turn.
+				if (win === 0) {
+					gameStatusMsg("Its your turn, player " + currentPlayerText());
 				}
-				
-				// increment turn;
-				turn++;
 			}
 			else {
 				// con.println(state);
@@ -157,6 +177,9 @@ var engine = function() {
 			// reset all of the cells.
 			gameCellFormat([0,1,2,3,4,5,6,7,8], "N");
 			gameCellText([0,1,2,3,4,5,6,7,8], "-");
+			
+			// update status message
+			gameStatusMsg("Game is reset. X player starts.");
 		}
 	};
 	
