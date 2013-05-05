@@ -8,6 +8,8 @@ button.gameCell {
     0 2px 1px rgba(0, 0, 0, 0.2), 
     inset 0 2px 1px rgba(0, 0, 0, 0.2);
     
+    background-color: white;
+    
   	/* Font styles */
   	text-decoration: none;
   	font-size: 14px;
@@ -27,6 +29,8 @@ button.gameCellX {
     0 2px 1px rgba(0, 0, 0, 0.2), 
     inset 0 2px 1px rgba(0, 0, 0, 0.2);
     
+    background-color: #008800;
+    
   	/* Font styles */
   	text-decoration: none;
   	font-size: 14px;
@@ -40,11 +44,13 @@ button.gameCellXWin {
 	display: inline-block;
 	width: 50px;
   	padding: 8px;
-  	border: 3px solid #00FF00;
+  	border: 3px solid #00FF55;
   	border-radius: 6px;
   	box-shadow:
     0 2px 1px rgba(0, 0, 0, 0.2), 
     inset 0 2px 1px rgba(0, 0, 0, 0.2);
+    
+    background-color: yellow;
     
   	/* Font styles */
   	text-decoration: none;
@@ -69,6 +75,8 @@ button.gameCellO {
     0 2px 1px rgba(0, 0, 0, 0.2), 
     inset 0 2px 1px rgba(0, 0, 0, 0.2);
     
+    background-color: #880000;
+    
   	/* Font styles */
   	text-decoration: none;
   	font-size: 14px;
@@ -82,14 +90,14 @@ button.gameCellOWin {
 	display: inline-block;
 	width: 50px;
   	padding: 8px;
-  	border: 3px solid #FF0000;
+  	border: 3px solid #FF0055;
   	border-radius: 6px;
   	box-shadow:
     0 2px 1px rgba(0, 0, 0, 0.2), 
     inset 0 2px 1px rgba(0, 0, 0, 0.2);
     
     /* background */
-    background: #FCB326
+    background-color: yellow;
     
   	/* Font styles */
   	text-decoration: none;

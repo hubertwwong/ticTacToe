@@ -1,5 +1,4 @@
 var engine = function() {
-	var eng = document.getElementById('toggle-1');
 	var state = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var turn = 0;
 	var win = 0;
@@ -93,7 +92,7 @@ var engine = function() {
  						 [1,4,6],
  						 [2,5,8],
  						 [0,4,8],
- 						 [2,4,5] ];
+ 						 [2,4,6] ];
  		
  		// horizontal
  		for(var i=0 ; i<winStates.length ; i++) {
