@@ -128,9 +128,10 @@ var engine = function() {
 	 	}
 	 	
 	 	// check for tie
-	 	con.println("winning " + inTurn);
-	 	if(inTurn === 7) {
+	 	if(inTurn === 8) {
 	 		gameStatusMsg("Tie game. Press reset to start another game.");
+	 		inWinFlag = 3;
+	 		con.println("winning " + inTurn);
 	 	}
  	}
  		
