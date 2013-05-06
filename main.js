@@ -1,7 +1,7 @@
 var engine = function() {
-	var state = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-	var turn = 0;
-	var win = 0;
+	var inState = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var inTurn = 0;
+	var inWinFlag = 0;
  	
  	// CSS FUNCTIONS
  	// =======================================================================
@@ -69,7 +69,7 @@ var engine = function() {
  	// 2 for O
  	var currentPlayerInt = function() {
  		var cellValue = 1;
- 		if(turn % 2 == 1) {
+ 		if(inTurn % 2 == 1) {
  			cellValue = 2;
  		}
  		return cellValue;
@@ -78,7 +78,7 @@ var engine = function() {
  	// returns if you are an X or O
  	var currentPlayerText = function() {
  		var cellText = "X";
- 		if(turn % 2 == 1) {
+ 		if(inTurn % 2 == 1) {
  			cellText = "O";
  		}
  		return cellText;
@@ -115,8 +115,8 @@ var engine = function() {
  			c1 = winStates[i][0];
  			c2 = winStates[i][1];
  			c3 = winStates[i][2];
- 			if(state[c1] === cellValue && state[c2] === cellValue && state[c3] === cellValue) {
- 				win = cellValue;
+ 			if(inState[c1] === cellValue && inState[c2] === cellValue && inState[c3] === cellValue) {
+ 				inWinFlag = cellValue;
  				gameCellFormat([c1, c2, c3], currentPlayerText() + "Win");
  				
  				// winner status message.
@@ -128,8 +128,8 @@ var engine = function() {
 	 	}
 	 	
 	 	// check for tie
-	 	con.println("winning " + turn);
-	 	if(turn === 8) {
+	 	con.println("winning " + inTurn);
+	 	if(inTurn === 8) {
 	 		gameStatusMsg("Tie game. Press reset to start another game.");
 	 	}
  	}
@@ -138,28 +138,28 @@ var engine = function() {
 		cellClick: function(value) {
 			// check to see if cell
 			// using 1 as x and 2 as y
-			if (state[value] === 0 && win === 0) {
+			if (inState[value] === 0 && inWinFlag === 0) {
 				// check to put a x or o
 				// doing a mod check.
 				var cellValue = currentPlayerInt();
 				
 				// update game state.
-				state[value]=cellValue;
+				inState[value]=cellValue;
 				
 				// update buttons text.
 				gameCellText(value, currentPlayerText());
 				gameCellFormat(value, currentPlayerText());
-				con.println(currentPlayerText() + " " + turn);
+				con.println(currentPlayerText() + " " + inTurn);
 				
 				// increment turn;
 				// do this before chekcing for the win state.
-				turn++;
+				inTurn++;
 				
 				/// check to see if you are the winner
 				winning();
 				
 				// prompt for next players turn.
-				if (win === 0) {
+				if (inWinFlag === 0) {
 					gameStatusMsg("Its your turn, player " + currentPlayerText());
 				}
 			}
@@ -170,8 +170,8 @@ var engine = function() {
 		},
 		reset: function() {
 			con.println("game reset.");
-			state = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-			turn = 0;
+			inState = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+			inTurn = 0;
 			win = 0;
 			
 			// reset all of the cells.
