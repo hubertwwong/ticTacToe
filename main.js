@@ -92,7 +92,7 @@ var engine = function() {
  	// 2 = O wins
  	//
  	// also check the tie state
- 	var winning = function() {
+ 	var gameCheckWinning = function() {
  		// check who's turn it is.
  		var cellValue = currentPlayerInt();
  		var winFlag = false;
@@ -129,7 +129,7 @@ var engine = function() {
 	 	
 	 	// check for tie
 	 	con.println("winning " + inTurn);
-	 	if(inTurn === 8) {
+	 	if(inTurn === 7) {
 	 		gameStatusMsg("Tie game. Press reset to start another game.");
 	 	}
  	}
@@ -151,17 +151,17 @@ var engine = function() {
 				gameCellFormat(value, currentPlayerText());
 				con.println(currentPlayerText() + " " + inTurn);
 				
-				// increment turn;
-				// do this before chekcing for the win state.
-				inTurn++;
-				
 				/// check to see if you are the winner
-				winning();
+				gameCheckWinning();
 				
 				// prompt for next players turn.
 				if (inWinFlag === 0) {
 					gameStatusMsg("Its your turn, player " + currentPlayerText());
 				}
+				
+				// increment turn;
+				// do this before chekcing for the win state.
+				inTurn++;
 			}
 			else {
 				// con.println(state);
@@ -172,7 +172,7 @@ var engine = function() {
 			con.println("game reset.");
 			inState = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			inTurn = 0;
-			win = 0;
+			inWinFlag = 0;
 			
 			// reset all of the cells.
 			gameCellFormat([0,1,2,3,4,5,6,7,8], "N");
