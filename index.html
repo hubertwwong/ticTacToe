@@ -22,33 +22,55 @@
         </div>
         
         <!-- the board -->
-        <div id="row-1">
-        	<button type="reset" id="cell0Btn" class="gameCell" onclick="engine.cellClick(0)">-</button>
-        	<button type="reset" id="cell1Btn" class="gameCell" onclick="engine.cellClick(1)">-</button>
-        	<button type="reset" id="cell2Btn" class="gameCell" onclick="engine.cellClick(2)">-</button>
+        <div id="gameBoard">
+	        <div id="gameBox">
+		        <div id="row-1">
+		        	<button type="reset" id="cell0Btn" class="gameCell" onclick="engine.cellClick(0)">-</button>
+		        	<button type="reset" id="cell1Btn" class="gameCell" onclick="engine.cellClick(1)">-</button>
+		        	<button type="reset" id="cell2Btn" class="gameCell" onclick="engine.cellClick(2)">-</button>
+				</div>
+				<div id="row-2">
+			        <button type="reset" id="cell3Btn" class="gameCell" onclick="engine.cellClick(3)">-</button>
+		        	<button type="reset" id="cell4Btn" class="gameCell" onclick="engine.cellClick(4)">-</button>
+		        	<button type="reset" id="cell5Btn" class="gameCell" onclick="engine.cellClick(5)">-</button>
+				</div>
+				<div id="row-3">
+			        <button type="reset" id="cell6Btn" class="gameCell" onclick="engine.cellClick(6)">-</button>
+		        	<button type="reset" id="cell7Btn" class="gameCell" onclick="engine.cellClick(7)">-</button>
+		        	<button type="reset" id="cell8Btn" class="gameCell" onclick="engine.cellClick(8)">-</button>
+				</div>
+			</div>
+			
+			<!-- stat line -->
+			<div id="statBox">
+				<table id="statTable">
+					<tr>
+						<td>X Wins</td>
+						<td id="XWinsNumber">0</td>
+					</tr>
+					<tr>
+						<td>O Wins</td>
+						<td id="OWinsNumber">0</td>
+					</tr>
+					<tr>
+						<td>Ties</td>
+						<td id="TiesNumber">0</td>
+					</tr>
+				</table>
+			</div>
 		</div>
-		<div id="row-2">
-	        <button type="reset" id="cell3Btn" class="gameCell" onclick="engine.cellClick(3)">-</button>
-        	<button type="reset" id="cell4Btn" class="gameCell" onclick="engine.cellClick(4)">-</button>
-        	<button type="reset" id="cell5Btn" class="gameCell" onclick="engine.cellClick(5)">-</button>
-		</div>
-		<div id="row-3">
-	        <button type="reset" id="cell6Btn" class="gameCell" onclick="engine.cellClick(6)">-</button>
-        	<button type="reset" id="cell7Btn" class="gameCell" onclick="engine.cellClick(7)">-</button>
-        	<button type="reset" id="cell8Btn" class="gameCell" onclick="engine.cellClick(8)">-</button>
-		</div>
-		
 		<!-- 
 		creating a text box for javascript output.
 		don't have to deal with the text refresh.
 		-->
-		<form>
-	  		<h3>text output:</h3>
-	  		<textarea rows="30" cols="80" id="console">
-				
-			</textarea>
-	  	</form>
-		
+		<div id="consoleDiv">
+			<form>
+		  		<h3>text output:</h3>
+		  		<textarea rows="30" cols="80" id="console">
+					
+				</textarea>
+		  	</form>
+		</div>
 		<!-- 
 			load scripts at the bottom.
 			if you do it here, you don't have to check agains the dom loading.

@@ -1,7 +1,16 @@
 var engine = function() {
+	// stores the game state.
 	var inState = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	// int of the turn number for the current game.
 	var inTurn = 0;
+	// flag to store the state of the game
+	// [0 = in progress][1 = x wins][2 = o wins][3 = tie game]
 	var inWinFlag = 0;
+	// stores number of games that each person wins.
+	var inStats = {};
+	inStats['X'] = 0;
+	inStats['O'] = 0;
+	inStats['T'] = 0;
  	
  	// CSS FUNCTIONS
  	// =======================================================================
@@ -47,7 +56,7 @@ var engine = function() {
 	 		else if (value === "O") {
 	 			currentCell.className = "gameCellO";
 	 		}
-	 		if (value === "XWin") {
+	 		else if (value === "XWin") {
 	 			currentCell.className = "gameCellXWin";
 	 		}
 	 		else if (value === "OWin") {
@@ -58,6 +67,26 @@ var engine = function() {
 	 		}	
  		}
  		
+ 	}
+ 	
+ 	// update the stat line.
+ 	// pass it the game the XWin, OWin, N
+ 	var gameStatUpdate = function(value) {
+ 		if (value === "X") {
+ 			var currentCell = document.getElementById("XWinsNumber");
+ 			inStats['X'] = inStats['X'] + 1;
+ 			currentCell.innerHTML = inStats['X'];
+ 		}
+ 		else if (value === "O") {
+ 			var currentCell = document.getElementById("OWinsNumber");
+ 			inStats['O'] = inStats['O'] + 1;
+ 			currentCell.innerHTML = inStats['O'];
+ 		}
+ 		else if (value === "N") {
+ 			var currentCell = document.getElementById("TiesNumber");
+ 			inStats['T'] = inStats['T'] + 1;
+ 			currentCell.innerHTML = inStats['T'];
+ 		}
  	}
  	
  	// GAME FUNCTIONS
@@ -123,25 +152,32 @@ var engine = function() {
  				gameStatusMsg("Player " + currentPlayerText() + " wins !!!. Press reset to play another game.");
  				con.println(currentPlayerText() + " is the winner");
  				
+ 				// update statline.
+ 				gameStatUpdate(currentPlayerText());
+ 				
  				break;
  			}
 	 	}
 	 	
 	 	// check for tie
 	 	if(inTurn === 8) {
-	 		gameStatusMsg("Tie game. Press reset to start another game.");
 	 		inWinFlag = 3;
+	 		gameStatUpdate('N');
+	 		
+	 		gameStatusMsg("Tie game. Press reset to start another game.");
 	 		con.println("winning " + inTurn);
 	 	}
  	}
+ 		
+ 	// PUBLIC FUNCTIONS.
+ 	// =======================================================================	
  		
 	return {
 		cellClick: function(value) {
 			// check to see if cell
 			// using 1 as x and 2 as y
 			if (inState[value] === 0 && inWinFlag === 0) {
-				// check to put a x or o
-				// doing a mod check.
+				// figure out what player you are.
 				var cellValue = currentPlayerInt();
 				
 				// update game state.
